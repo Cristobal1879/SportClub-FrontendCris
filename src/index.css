@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* ── USUARIO: Azul ── */
+.theme-user {
+  --theme-primary: #0d6efd;
+  --theme-secondary: #084298;
+  --theme-bg: #e7f1ff;
+  --theme-sidebar-bg: #0a58ca;
+  --theme-sidebar-text: #ffffff;
+  --theme-badge: #cfe2ff;
+  --theme-badge-text: #084298;
+}
+
+/* ── COACH: Verde ── */
+.theme-coach {
+  --theme-primary: #198754;
+  --theme-secondary: #0f5132;
+  --theme-bg: #d1e7dd;
+  --theme-sidebar-bg: #146c43;
+  --theme-sidebar-text: #ffffff;
+  --theme-badge: #d1e7dd;
+  --theme-badge-text: #0f5132;
+}
+
+/* ── ADMINISTRADOR: Rojo/Morado ── */
+.theme-admin {
+  --theme-primary: #842029;
+  --theme-secondary: #6f1521;
+  --theme-bg: #f8d7da;
+  --theme-sidebar-bg: #842029;
+  --theme-sidebar-text: #ffffff;
+  --theme-badge: #f8d7da;
+  --theme-badge-text: #6f1521;
+}
+
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background-color: var(--theme-sidebar-bg);
+  color: var(--theme-sidebar-text);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+}
+
+.sidebar-brand {
+  padding: 1.5rem 1.25rem 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+  flex: 1;
+}
+
+.sidebar-nav li a,
+.sidebar-nav li button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li button:hover,
+.sidebar-nav li a.active {
+  background-color: rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+.main-content {
+  margin-left: 240px;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.topbar {
+  background: #fff;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+}
+
+.stat-card {
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #fff;
+  background: var(--theme-sidebar-bg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.sport-card {
+  border-radius: 12px;
+  border: 1px solid #dee2e6;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.sport-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.badge-active {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  padding: 0.3em 0.7em;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge-inactive {
+  background-color: #f8d7da;
+  color: #842029;
+  padding: 0.3em 0.7em;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-weight: 700;
+  color: #212529;
+}
+
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-logo h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0d6efd;
+}
+
+.login-logo span {
+  color: #212529;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.table th {
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6c757d;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin: 0 2px;
+}
+
+.is-invalid ~ .invalid-feedback {
+  display: block;
+}

@@ -1,0 +1,49 @@
+import { Outlet, NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
+import Swal from 'sweetalert2'
+
+export default function CoachLayout() {
+  const { user, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: '¿Cerrar sesión?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#198754',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Sí, salir',
+      cancelButtonText: 'Cancelar'
+    }).then(result => {
+      if (result.isConfirmed) { logout(); navigate('/login') }
+    })
+  }
+
+  return (
+    <div className="theme-coach d-flex">
+      <div className="sidebar">
+        <div className="sidebar-brand">
+          🏋️ SportClub
+          <div style={{ fontSize: '0.7rem', opacity: 0.7, fontWeight: 400, marginTop: 2 }}>Panel Coach</div>
+        </div>
+        <ul className="sidebar-nav">
+          <li>
+            <NavLink to="/coach" end className={({ isActive }) => isActive ? 'active' : ''}>
+              📊 Dashboard
+            </NavLink>
+          </li>
+        </ul>
+        <div style={{ padding: '1rem 1.25rem', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
+          <div style={{ fontSize: '0.8rem', opacity: 0.8, marginBottom: 8 }}>👤 {user?.full_name}</div>
+          <button onClick={handleLogout} style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', color: '#fff', borderRadius: 6, padding: '6px 14px', fontSize: '0.85rem', cursor: 'pointer', width: '100%' }}>
+            Cerrar sesión
+          </button>
+        </div>
+      </div>
+      <div className="main-content" style={{ flex: 1 }}>
+        <Outlet />
+      </div>
+    </div>
+  )
+}
